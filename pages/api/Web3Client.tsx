@@ -2,7 +2,13 @@ import Web3 from 'web3';
 import abiJSON from './abi'
 import owhAbiJSON from './owhAbi'
 
-let contractsAddress = {
+interface contractsAddressInterface {
+    ropsten:any;
+    bscnet:any;
+    [key: string]: any;
+};
+
+let contractsAddress: contractsAddressInterface = {
     ropsten: {
         tokenAddr: '0xAFBa3CcE0B584a8637ba920150F4E9ba7B1f15A6',
         owhTokenAddr: '0xA4465b289842FB8FA856b28236825220202FDe68',
@@ -10,6 +16,12 @@ let contractsAddress = {
     bscnet: {
         tokenAddr: '0x2B4FcF0a9d3f7a0dCF122d99Df90dd5E1FE4CC2C',
         owhTokenAddr: '0xF3AB703fc4C5B49CF20d4af6114fEEb984385fDf',
+    }
+}
+
+declare global {
+    interface Window {
+        ethereum:any;
     }
 }
 
